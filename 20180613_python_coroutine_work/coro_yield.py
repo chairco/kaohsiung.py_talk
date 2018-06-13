@@ -80,4 +80,3 @@ while n_jobs:
 
 
 print('%.2f secondes' % (time.time() - start))
-
