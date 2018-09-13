@@ -2,7 +2,8 @@
 import asyncio
 import random
 import time
-
+import os
+os.environ['PYTHONASYNCIODEBUG'] = '1'
 
 async def gen(num):
     i = 0
@@ -12,7 +13,7 @@ async def gen(num):
         if i == num:
             break
         # time.sleep(0.5)
-        if i == 5:
+        if i == 3:
             print('sleep 5s')
             await asyncio.sleep(5) # async sleep
             print('end sleep')
@@ -42,6 +43,7 @@ async def consume(queue):
 
         # Notify the queue that the item has been processed
         queue.task_done()
+
 
 
 async def run(n):
