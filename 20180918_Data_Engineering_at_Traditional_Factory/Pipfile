@@ -16,6 +16,7 @@ aiohttp = "*"
 pyserial = "*"
 pyserial-asyncio = "*"
 click = "*"
+requests = "*"
 
 [dev-packages]
 
