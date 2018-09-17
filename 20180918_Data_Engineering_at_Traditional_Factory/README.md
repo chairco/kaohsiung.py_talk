@@ -15,7 +15,7 @@
 本次分享共有: 
 
 1. Django 建立的 server 環境
-2. client 可以運作實際以及模擬 serail port 環境
+2. Client 可以運作實際以及模擬 serail port 環境
 
 
 ### 套件安裝
@@ -45,10 +45,10 @@ python manager.py runserver
 
 ### 設定資料庫:
 
-打開瀏覽器進入[](http://localhost:8000/admin/boards/device/)建立 Device Table 的資料。
+打開瀏覽器登入 http://localhost:8000/admin/boards/device/ 並進入 Admin 後台建立 Device Table 資料。
 因為 table fk 關係，模擬的 client 會需要 Device 預設有兩筆資料如下(內容不一定要相同):
 
-![#](https://imgur.com/a/Dc2Q30d)
+![Imgur](https://i.imgur.com/h6qmhOr.png)
 
 
 ### Client 端測試:
@@ -60,7 +60,7 @@ cd client
 python mock.py --help
 ```
 
-![#](https://imgur.com/a/XhcLes0)
+![Imgur](https://i.imgur.com/Sp4kvys.png)
 
 
 接著可以執行模擬，假裝 serail port 送資料到 server，先試著送 20 筆吧
@@ -71,4 +71,4 @@ python mock.py --num 20
 
 同時可以把網頁切換到[儀表板](http://localhost:8000/boards/dashboard/)看看圖形收到資料後是否有改變: 
 
-![#](http://recordit.co/4hzoaFgxYb)
+![Imgur](https://i.imgur.com/TMVlvzw.gifv)
