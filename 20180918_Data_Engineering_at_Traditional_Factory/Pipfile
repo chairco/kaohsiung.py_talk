@@ -5,6 +5,17 @@ name = "pypi"
 
 [packages]
 alog = "*"
+django = "*"
+django-echarts = "*"
+django-crispy-forms = "*"
+"django-bootstrap3" = "*"
+djangorestframework = "*"
+pyecharts = "==0.4.1"
+django-compressor = "*"
+aiohttp = "*"
+pyserial = "*"
+pyserial-asyncio = "*"
+click = "*"
 
 [dev-packages]
 
