@@ -1,0 +1,22 @@
+{# boards/_base.html #}
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block extra_css %}
+
+{% endblock %}
+
+
+{% block main_content %}
+{{ block.super }}
+  <div class="row">
+    {% block content %}
+      {% block bar %}
+        <li><a href="{% url 'index' %}">首頁</a>
+            <span class="divider">/</span>
+        </li>
+      {% endblock bar %}
+    {% endblock content %}
+  </div>
+{% endblock main_content %}

@@ -1,0 +1,16 @@
+{# index.html #}
+{% extends 'base.html' %}
+
+{% block main_content %}
+{{ block.super }}
+<div class="row">
+    <div class="col-md-12 main">
+        <div class="jumbotron">
+          <h2>System</h2>
+          <p>Real-time Data Monitor</p>
+          <p><a class="btn btn-primary btn-lg" href="{% url 'dashboard' %}" role="button">Start >></a></p>
+        </div>
+        <!-- jumbotron -->
+    </div>
+</div>
+{% endblock main_content %}
