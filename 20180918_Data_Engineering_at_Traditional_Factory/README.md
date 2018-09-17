@@ -71,4 +71,4 @@ python mock.py --num 20
 
 同時可以把網頁切換到[儀表板](http://localhost:8000/boards/dashboard/)看看圖形收到資料後是否有改變: 
 
-![Imgur](https://i.imgur.com/TMVlvzw.gifv)
+![Imgur](https://i.imgur.com/TMVlvzw.gif)
