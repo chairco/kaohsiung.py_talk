@@ -17,12 +17,11 @@ ip = "localhost:8000"
 url_boards = f"http://{ip}/boards/records/"
 
 # serial setting
-com = '/dev/cu.usbmodem1411'
+com = '/dev/cu.usbmodem1421'
 port = 9600
 
 # data format
-len_map = ['pink', 'orange', 'yellow', 'green', 'blue']
-rs232_len = 16
+rs232_len = 6#32
 
 
 def filter(received):
@@ -129,9 +128,11 @@ async def produce_rs232(queue, n=None, **kwargs):
     index = 0
     while True:
         data = await reader.readline()
+
         buffers += data.decode('utf-8')
         alog.info(buffers)
         buf = buffers.split('\r')[-2].split(',')
+
         if len(buf) < rs232_len:
             alog.info(f"Drop not illeage {len(buf)}")
             buffers = ''
@@ -141,7 +142,6 @@ async def produce_rs232(queue, n=None, **kwargs):
             buffers = buffers.strip() # clean \n
             alog.info(f"producing {index}/{n}, id:{id(last_received)}, {last_received.split(',')[2]}")
             index += 1
-            await asyncio.sleep(random.random())
             await queue.put(last_received)
 
 
@@ -210,11 +210,11 @@ async def run(loop, n, fake_msg, fake=True):
 
 
 @click.command()
-@click.option('--device', default='/dev/cu.usbmodem1411', help="device's com.")
-@click.option('--port', default=9600, help="device's port.")
+@click.option('--device', default=com, help="device's com.")
+@click.option('--port', default=port, help="device's port.")
 @click.option('--server', default='localhost', help="restful server address.")
 @click.option('--num', default=None, type=int, help="execute times.")
-@click.option('--fake', default=True, help="Selet really env.")
+@click.option('--fake', default=True, type=bool, help="Selet really env.")
 def main(device, port, server, num, fake):
     """
     create asyncio event loop
